@@ -19,7 +19,7 @@ GROUP   = "@driftautolike"
 TOKEN_CACHE = {}
 app = Flask(__name__)
 
-KEY_LIMIT = 100
+KEY_LIMIT = 999999999999999
 tracker = defaultdict(lambda: [0, time.time()])
 liked_cache = defaultdict(set)
 
@@ -469,7 +469,7 @@ def like():
     key = request.args.get("key")
     ip = request.remote_addr
 
-    if key != "DRIFT":
+    if key != "HOLIC":
         return jsonify({"error": "Invalid API key"}), 403
     if not uid or not server:
         return jsonify({"error": "UID and server_name required"}), 400
